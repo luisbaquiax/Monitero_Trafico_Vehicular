@@ -7,4 +7,8 @@ use Illuminate\Http\Request;
 class MunicipioController extends Controller
 {
     //
+    public function index()
+    {
+
+    }
 }

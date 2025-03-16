@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RolUsuario;
+use App\Models\Sesion;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class UsuarioController extends Controller
         $user->apellidos = request('apellidos');
         $user->correo = request('correo');
         $user->telefono = request('telefono');
-        $user->fecha_creacion = date('Y-m-d H');
+        $user->fecha_creacion = $this->currentDate();
         $user->estado = 1;
         $user->id_rol = request('rol');
         $user->save();
@@ -36,6 +37,13 @@ class UsuarioController extends Controller
         $user = Usuario::where('nombre_usuario', $username)->first();
         if ($user) {
             if ($user->password == $password) {
+                $sesionUsuario = new Sesion();
+                $sesionUsuario->fecha = $this->currentDate();
+                $sesionUsuario->hora_inicio = $this->currentTime();
+                $sesionUsuario->id_usuario = $user->id;
+                $sesionUsuario->save();
+                //iniciamos sesion
+                session(['id_sesion' => $sesionUsuario->id]);
                 session(['user' => $user]);
                 $rol = RolUsuario::find($user->id_rol);
                 switch ($rol->nombre_rol) {
@@ -52,7 +60,6 @@ class UsuarioController extends Controller
         }
         //usuario no identificado
         return redirect('/')->with('msg-danger', 'Usted no se encuentra registrado en el sistema');
-        //return view('welcome');
     }
 
     public function usersList()
@@ -70,6 +77,10 @@ class UsuarioController extends Controller
 
     public function logout()
     {
+        $id_sesion = session('id_sesion');
+        $sesionUsuario = Sesion::find($id_sesion);
+        $sesionUsuario->hora_salida = $this->currentTime();
+        $sesionUsuario->save();
         session()->flush();
         return redirect('/');
     }
@@ -80,5 +91,15 @@ class UsuarioController extends Controller
     public function getUsers()
     {
         return Usuario::where('id_rol', '!=', 1)->where('estado', 1)->get();
+    }
+
+    public function currentDate()
+    {
+        return date('Y-m-d H');
+    }
+
+    public function currentTime()
+    {
+        return date('H:i:s');
     }
 }

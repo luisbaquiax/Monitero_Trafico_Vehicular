@@ -11,18 +11,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="m-3" action="{{ route('create.user') }}" method="post">
+                <form class="m-3" action="{{ route('create.intersection') }}" method="post">
                     @csrf
                     <label for="exampleSelect1" class="form-label">Calle</label>
                     <select class="form-select mb-2" id="exampleSelect1" name="calle_interseccion">
-                        <option value="CALLE">Calle</option>
-                        <option value="AVENIDA">Avenida</option>
+                        @foreach($calles as $calle)
+                            <option value="{{ $calle->id }}">{{ $calle->nombre_calle }}</option>
+                        @endforeach
                     </select>
 
                     <label for="exampleSelect1" class="form-label">Avenida</label>
                     <select class="form-select mb-2" id="exampleSelect1" name="avenida_interseccion">
-                        <option value="CALLE">Calle</option>
-                        <option value="AVENIDA">Avenida</option>
+                        <@foreach($avenidas as $calle)
+                            <option value="{{ $calle->id }}">{{ $calle->nombre_calle }}</option>
+                        @endforeach
+                    </select>
+
+                    <label for="exampleSelect1" class="form-label">Zona</label>
+                    <select class="form-select mb-2" id="exampleSelect1" name="numero_zona">
+                        <@foreach($zonas as $zona)
+                            <option value="{{ $zona->numero_zona }}">{{ $zona->numero_zona }}</option>
+                        @endforeach
                     </select>
 
                     <div class="text-center">

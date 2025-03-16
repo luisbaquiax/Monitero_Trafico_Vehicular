@@ -10,6 +10,7 @@
 @include('admin.menu-admin')
 
 <div class="container">
+    @include('utils.messages')
     @include('admin.add-intersection')
     @include('admin.list-intercepts')
 </div>

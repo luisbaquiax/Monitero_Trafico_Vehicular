@@ -10,6 +10,7 @@
 @include('admin.menu-admin')
 
 <div class="container">
+    @include('utils.messages')
     @include('admin.add-street')
     @include('admin.list-streets')
 </div>

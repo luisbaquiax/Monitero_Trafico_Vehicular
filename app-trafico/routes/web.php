@@ -24,6 +24,9 @@ Route::post('/create-user',[UsuarioController::class, 'create'] )->name('create.
 
 //intersecciones
 Route::get('/intersecciones',[InterseccionController::class, 'index'] )->name('list.interseccion');
+Route::post('crate-intersection',[InterseccionController::class, 'create'] )->name('create.intersection');
 
 //calles y avenidas
 Route::get('/calles',[CalleController::class, 'index'] )->name('list.calle');
+Route::post('/create-street',[CalleController::class, 'create'] )->name('create.street');
+Route::post('/edit-street',[CalleController::class, 'edit'] )->name('edit.street');
