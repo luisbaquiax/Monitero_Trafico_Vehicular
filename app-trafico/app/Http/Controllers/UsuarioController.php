@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\RolUsuario;
 use App\Models\Sesion;
 use App\Models\Usuario;
+use Illuminate\Contracts\Queue\Monitor;
 use Illuminate\Http\Request;
 
 date_default_timezone_set("America/Guatemala");
@@ -67,6 +68,11 @@ class UsuarioController extends Controller
         return view('admin/admin-users')->with('users', $this->getUsers());
     }
 
+    public function monitorsList()
+    {
+        return view('supervisor/supervisor-monitors')->with('users', $this->getMonitors());
+    }
+
     public function deleteUser($id_user)
     {
         $user = Usuario::find($id_user);
@@ -91,6 +97,11 @@ class UsuarioController extends Controller
     public function getUsers()
     {
         return Usuario::where('id_rol', '!=', 1)->where('estado', 1)->get();
+    }
+
+    public function getMonitors()
+    {
+        return Usuario::where('id_rol', '=', 2)->where('estado', 1)->get();
     }
 
     public function currentDate()

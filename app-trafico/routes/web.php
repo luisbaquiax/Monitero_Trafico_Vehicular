@@ -8,6 +8,7 @@ use \App\Http\Controllers\MunicipioController;
 use \App\Http\Controllers\DepartamentoController;
 use \App\Http\Controllers\SemaforoController;
 use \App\Http\Controllers\SensorController;
+use \App\Http\Controllers\SesionController;
 
 Route::get('/', function () {
     return view('login');
@@ -21,6 +22,10 @@ Route::get('/user-list',[UsuarioController::class, 'logout'] )->name('users.logo
 Route::get('/users-list',[UsuarioController::class, 'usersList'] )->name('users.list');
 Route::get('/delete-user/{id_user}',[UsuarioController::class, 'deleteUser'] )->name('delete.user');
 Route::post('/create-user',[UsuarioController::class, 'create'] )->name('create.user');
+
+//supervisores
+Route::get('/monitors-list',[UsuarioController::class, 'monitorsList'] )->name('monitors.list');
+Route::get('/monitor-sessions/{id_usuario}',[SesionController::class, 'sessionesPorUsuario'] )->name('monitor.sessions');
 
 //intersecciones
 Route::get('/intersecciones',[InterseccionController::class, 'index'] )->name('list.interseccion');
