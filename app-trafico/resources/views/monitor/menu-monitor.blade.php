@@ -7,24 +7,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarColor04">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">Archivos</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('monitor.home') }}">Cargar archivo</a>
+                        <a class="dropdown-item" href="#">Todos los archivos</a>
+                        <a class="dropdown-item" href="{{ route('monitor.myFiles') }}">Archivos cargados</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                       aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                       aria-haspopup="true" aria-expanded="false">Reporte</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
+                        <a class="dropdown-item" href="{{ route('monitor.home') }}">Registros de vehiculos por intersección</a>
                     </div>
                 </li>
             </ul>
@@ -34,7 +30,7 @@
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                            aria-haspopup="true" aria-expanded="false">Perfil</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">{{ session('user')->nombre_usuario }}</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('users.logout') }}">Salir</a>
                         </div>

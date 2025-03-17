@@ -29,6 +29,23 @@ class ArchivoRegistro extends Model
         return $this->hasMany(RegistroVehiculo::class, 'id_registro_archivo');
     }
 
+    public function sensor()
+    {
+        return $this->hasManyThrough(Sensor::class, RegistroVehiculo::class, 'id_registro_archivo', 'id', 'id', 'id_sensor');
+    }
+
+    // Relación indirecta: Obtener semáforos a través de sensores
+    public function semaforo()
+    {
+        return $this->hasManyThrough(Semaforo::class, Sensor::class, 'id', 'id', 'id', 'id_semaforo');
+    }
+
+    // Relación indirecta: Obtener intersecciones a través de semáforos
+    public function interseccion()
+    {
+        return $this->hasManyThrough(Interseccion::class, Semaforo::class, 'id', 'id', 'id', 'id_interseccion');
+    }
+
     /**
      * Cada archivo de registro es un paquete de registros
      */

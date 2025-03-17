@@ -55,6 +55,12 @@ Route::post('/monitor-startIteraccion', [InterseccionController::class, 'startIn
 Route::post('/monitor-cargar-datos', [RegistroVehiculoController::class, 'cargarDatos'])
     ->name('cargar.datos');
 
+Route::post('/monitor-datosRandom', [RegistroVehiculoController::class, 'cargarRegistrosAleatorios'])
+    ->name('monitor.datosRandom');
+
+Route::get('/monitor.myFiles', [ArchivoRegistroController::class, 'monitorArchivos'])
+    ->name('monitor.myFiles');
+
 //intersecciones
 Route::get('/intersecciones', [InterseccionController::class, 'index'])->name('list.interseccion');
 Route::post('crate-intersection', [InterseccionController::class, 'create'])->name('create.intersection');

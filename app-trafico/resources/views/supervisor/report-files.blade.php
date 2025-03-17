@@ -39,7 +39,7 @@
             <tr>
                 <td>{{ $archivo->fecha }}</td>
                 <td>{{ $archivo->hora_inicio }} - {{ $archivo->hora_finalizacion }}</td>
-                <td>{{ $archivo->id_usuario }}</td>
+                <td>{{ $archivo->usuario->nombre_usuario }}</td>
                 <td>{{ $archivo->tipo }}</td>
                 <td>
                     @include('supervisor/modal-registers')

@@ -108,12 +108,12 @@ class UsuarioController extends Controller
         return Usuario::where('id_rol', '=', 2)->where('estado', 1)->get();
     }
 
-    public function currentDate()
+    public static function currentDate()
     {
         return date('Y-m-d H');
     }
 
-    public function currentTime()
+    public static function currentTime()
     {
         return date('H:i:s');
     }
