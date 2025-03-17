@@ -1,0 +1,708 @@
+{
+  "fecha": "2025-03-16",
+  "hora_inicio": "07:00:00",
+  "hora_finalizacion": "09:00:00",
+  "tipo": "JSON",
+  "registros": [
+    {
+      "id_tipo_vehiculo": 4,
+      "velocidad": 37.0,
+      "hora": "08:25:57",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 1,
+      "velocidad": 78.5,
+      "hora": "08:23:37",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 16,
+      "velocidad": 51.4,
+      "hora": "07:51:33",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 15,
+      "velocidad": 44.0,
+      "hora": "07:17:05",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 17,
+      "velocidad": 10.9,
+      "hora": "07:25:44",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 10,
+      "velocidad": 71.0,
+      "hora": "08:24:12",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 1,
+      "velocidad": 24.8,
+      "hora": "07:21:12",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 13,
+      "velocidad": 26.1,
+      "hora": "07:47:13",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 1,
+      "velocidad": 79.9,
+      "hora": "07:42:50",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 6,
+      "velocidad": 39.8,
+      "hora": "08:23:57",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 9,
+      "velocidad": 30.9,
+      "hora": "08:11:13",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 19,
+      "velocidad": 14.0,
+      "hora": "07:20:00",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 1,
+      "velocidad": 35.7,
+      "hora": "07:37:04",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 18,
+      "velocidad": 59.1,
+      "hora": "07:55:43",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 14,
+      "velocidad": 78.1,
+      "hora": "07:53:18",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 16,
+      "velocidad": 78.1,
+      "hora": "07:07:29",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 3,
+      "velocidad": 54.3,
+      "hora": "08:33:27",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 12,
+      "velocidad": 52.8,
+      "hora": "08:20:27",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 3,
+      "velocidad": 73.7,
+      "hora": "07:34:52",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 9,
+      "velocidad": 48.8,
+      "hora": "07:18:04",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 16,
+      "velocidad": 54.4,
+      "hora": "07:04:45",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 2,
+      "velocidad": 51.2,
+      "hora": "08:32:34",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 19,
+      "velocidad": 19.6,
+      "hora": "08:48:46",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 4,
+      "velocidad": 49.5,
+      "hora": "08:07:44",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 12,
+      "velocidad": 41.9,
+      "hora": "08:09:44",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 19,
+      "velocidad": 57.8,
+      "hora": "08:45:28",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 19,
+      "velocidad": 39.6,
+      "hora": "07:31:55",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 2,
+      "velocidad": 14.3,
+      "hora": "07:45:11",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 13,
+      "velocidad": 57.5,
+      "hora": "07:52:19",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 15,
+      "velocidad": 47.1,
+      "hora": "07:54:43",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 14,
+      "velocidad": 57.1,
+      "hora": "08:49:49",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 16,
+      "velocidad": 34.3,
+      "hora": "08:47:32",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 11,
+      "velocidad": 31.8,
+      "hora": "08:13:48",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 12,
+      "velocidad": 51.1,
+      "hora": "08:21:10",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 19,
+      "velocidad": 47.1,
+      "hora": "07:55:13",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 6,
+      "velocidad": 53.7,
+      "hora": "08:45:33",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 15,
+      "velocidad": 63.8,
+      "hora": "07:30:00",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 1,
+      "velocidad": 40.8,
+      "hora": "07:10:17",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 3,
+      "velocidad": 41.7,
+      "hora": "07:31:25",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 5,
+      "velocidad": 34.7,
+      "hora": "08:18:18",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 7,
+      "velocidad": 80.0,
+      "hora": "07:25:37",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 1,
+      "velocidad": 26.2,
+      "hora": "07:40:38",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 20,
+      "velocidad": 70.1,
+      "hora": "08:57:39",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 8,
+      "velocidad": 69.1,
+      "hora": "08:51:15",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 9,
+      "velocidad": 21.8,
+      "hora": "07:30:03",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 15,
+      "velocidad": 17.8,
+      "hora": "08:00:10",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 16,
+      "velocidad": 72.5,
+      "hora": "07:59:56",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 14,
+      "velocidad": 10.1,
+      "hora": "07:39:20",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 12,
+      "velocidad": 67.1,
+      "hora": "07:07:52",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 3,
+      "velocidad": 61.3,
+      "hora": "07:21:14",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 15,
+      "velocidad": 27.3,
+      "hora": "07:13:30",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 6,
+      "velocidad": 45.3,
+      "hora": "08:46:40",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 3,
+      "velocidad": 63.7,
+      "hora": "07:16:49",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 1,
+      "velocidad": 15.4,
+      "hora": "08:55:44",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 13,
+      "velocidad": 17.5,
+      "hora": "07:14:32",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 4,
+      "velocidad": 76.1,
+      "hora": "07:16:24",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 7,
+      "velocidad": 75.0,
+      "hora": "07:40:55",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 1,
+      "velocidad": 77.0,
+      "hora": "08:40:03",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 5,
+      "velocidad": 70.2,
+      "hora": "07:24:58",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 4,
+      "velocidad": 70.1,
+      "hora": "07:57:01",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 12,
+      "velocidad": 52.1,
+      "hora": "08:48:58",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 11,
+      "velocidad": 74.3,
+      "hora": "08:38:29",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 10,
+      "velocidad": 27.6,
+      "hora": "08:25:16",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 20,
+      "velocidad": 12.4,
+      "hora": "08:49:21",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 3,
+      "velocidad": 51.6,
+      "hora": "08:44:17",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 3,
+      "velocidad": 39.1,
+      "hora": "07:11:35",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 11,
+      "velocidad": 53.9,
+      "hora": "07:20:55",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 9,
+      "velocidad": 39.0,
+      "hora": "08:31:34",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 11,
+      "velocidad": 24.4,
+      "hora": "07:28:42",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 11,
+      "velocidad": 47.8,
+      "hora": "08:38:42",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 2,
+      "velocidad": 14.4,
+      "hora": "08:59:55",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 8,
+      "velocidad": 17.2,
+      "hora": "07:52:22",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 6,
+      "velocidad": 10.9,
+      "hora": "07:02:18",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 8,
+      "velocidad": 45.1,
+      "hora": "08:25:31",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 4,
+      "velocidad": 20.7,
+      "hora": "07:20:00",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 7,
+      "velocidad": 44.9,
+      "hora": "08:52:39",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 5,
+      "velocidad": 60.4,
+      "hora": "08:15:09",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 17,
+      "velocidad": 50.7,
+      "hora": "08:09:33",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 8,
+      "velocidad": 51.1,
+      "hora": "07:26:36",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 9,
+      "velocidad": 44.3,
+      "hora": "08:48:54",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 11,
+      "velocidad": 64.6,
+      "hora": "08:43:29",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 10,
+      "velocidad": 73.4,
+      "hora": "08:26:42",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 2,
+      "velocidad": 11.7,
+      "hora": "07:31:43",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 10,
+      "velocidad": 79.0,
+      "hora": "07:24:11",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 10,
+      "velocidad": 11.2,
+      "hora": "07:56:32",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 4,
+      "velocidad": 37.3,
+      "hora": "07:47:30",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 11,
+      "velocidad": 43.8,
+      "hora": "08:54:01",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 18,
+      "velocidad": 76.5,
+      "hora": "07:54:08",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 16,
+      "velocidad": 79.3,
+      "hora": "08:32:28",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 15,
+      "velocidad": 10.9,
+      "hora": "07:51:00",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 3,
+      "velocidad": 21.8,
+      "hora": "07:50:57",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 13,
+      "velocidad": 30.6,
+      "hora": "07:30:26",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 14,
+      "velocidad": 18.3,
+      "hora": "08:15:57",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 4
+    },
+    {
+      "id_tipo_vehiculo": 7,
+      "velocidad": 71.8,
+      "hora": "08:26:23",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 20,
+      "velocidad": 45.6,
+      "hora": "07:09:16",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 19,
+      "velocidad": 36.2,
+      "hora": "07:21:10",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 2
+    },
+    {
+      "id_tipo_vehiculo": 14,
+      "velocidad": 70.4,
+      "hora": "08:59:48",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 3
+    },
+    {
+      "id_tipo_vehiculo": 15,
+      "velocidad": 26.5,
+      "hora": "08:24:39",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 14,
+      "velocidad": 25.5,
+      "hora": "08:20:55",
+      "estado_semaforo": "VERDE",
+      "id_sensor": 1
+    },
+    {
+      "id_tipo_vehiculo": 12,
+      "velocidad": 67.5,
+      "hora": "08:45:31",
+      "estado_semaforo": "AMARILLO",
+      "id_sensor": 1
+    }
+  ]
+}
