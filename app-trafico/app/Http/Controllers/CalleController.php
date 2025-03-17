@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Log;
 
 use App\Models\Calle;
 use App\Models\Municipio;
+use App\Models\Semaforo;
+use App\Models\Sensor;
 use Illuminate\Http\Request;
 
 class CalleController extends Controller
@@ -27,10 +30,12 @@ class CalleController extends Controller
         $calle->tipo = $request->tipo_calle;
         $calle->id_municipio = $municipios->id;
         $calle->estado = 1;
+
         try {
             $calle->save();
             return back()->with('msg-success', 'Calle registrada exitosamente.');
-        }catch (\Exception $exception){
+        }catch (\Exception $e){
+            error_log('Error al registrar la calle: ' . $e->getMessage());
             return back()->with('msg-danger', 'Hubo un error al registrar la calle.');
         }
     }

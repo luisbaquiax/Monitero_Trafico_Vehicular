@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Interseccion;
 use App\Models\RolUsuario;
 use App\Models\Sesion;
 use App\Models\Usuario;
@@ -51,7 +52,9 @@ class UsuarioController extends Controller
                     case 'ADMINISTRADOR':
                         return view('admin/home-admin')->with('user', $user);
                     case 'MONITOR':
-                        return view('monitor/home-monitor')->with('user', $user);
+                        return view('monitor/home-monitor')
+                            ->with('user', $user)
+                            ->with('intersecciones', Interseccion::all());
                     case 'SUPERVISOR':
                         return view('supervisor/home-supervisor')->with('user', $user);
                 }

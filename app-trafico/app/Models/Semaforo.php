@@ -12,10 +12,15 @@ class Semaforo extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'id',
-        'id_calle',
         'tiempo_verde',
         'tiempo_amarillo',
         'tiempo_rojo',
         'estado',
+        'id_interseccion'
     ];
+
+    public function interseccion()
+    {
+        return $this->hasOne(Interseccion::class, 'id', 'id_interseccion');
+    }
 }

@@ -8,6 +8,9 @@
 </head>
 <body>
 @include('monitor.menu-monitor')
+<div class="container">
+    @include('monitor.form-intersections')
+</div>
 @include('utils.footer-scripts')
 </body>
 </html>
