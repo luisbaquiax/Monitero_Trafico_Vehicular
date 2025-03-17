@@ -21,7 +21,8 @@
             <td>
                 <a type="button" class="btn btn-primary btn-sm"
                     href="{{ route('monitor.pruebas', ['id_usuario'=> $user->id]) }}">Pruebas</a>
-                <a type="button" class="btn btn-warning btn-sm">Archivos</a>
+                <a type="button" class="btn btn-warning btn-sm"
+                    href="{{ route('monitor.files', ['id_usuario'=> $user->id]) }}">Archivos</a>
                 <a type="button" class="btn btn-info btn-sm"
                    href="{{ route('monitor.sessions', ['id_usuario'=> $user->id]) }}">Sesiones</a>
             </td>

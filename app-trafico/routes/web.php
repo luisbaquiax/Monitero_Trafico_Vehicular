@@ -12,6 +12,7 @@ use \App\Http\Controllers\SensorController;
 use \App\Http\Controllers\SesionController;
 use \App\Http\Controllers\PruebaController;
 use \App\Http\Controllers\RegistroVehiculoController;
+use \App\Http\Controllers\ArchivoRegistroController;
 
 Route::get('/', function () {
     return view('login');
@@ -25,6 +26,14 @@ Route::get('/user-list', [UsuarioController::class, 'logout'])->name('users.logo
 Route::get('/users-list', [UsuarioController::class, 'usersList'])->name('users.list');
 Route::get('/delete-user/{id_user}', [UsuarioController::class, 'deleteUser'])->name('delete.user');
 Route::post('/create-user', [UsuarioController::class, 'create'])->name('create.user');
+Route::get('/admin-verFlujo', function (){
+    return view('admin/select-intersection')->with('intersecciones', Interseccion::all());
+})->name('admin.verFlujo');
+Route::post('/monitor-viewRegisgers', [RegistroVehiculoController::class, 'registroVehiculos'])
+    ->name('monitor.viewRegisgers');
+
+Route::get('/adminflujo-Vehicular/{id_interseccion}', [RegistroVehiculoController::class, 'registrosVehiculares'])
+    ->name('admin.flujoVehicular');
 
 //supervisores
 Route::get('/monitors-list', [UsuarioController::class, 'monitorsList'])->name('monitors.list');
@@ -32,6 +41,8 @@ Route::get('/monitor-sessions/{id_usuario}', [SesionController::class, 'sessione
     ->name('monitor.sessions');
 Route::get('/monitor-pruebas/{id_usuario}', [PruebaController::class, 'pruebasPorUsuario'])
     ->name('monitor.pruebas');
+Route::get('monitor-files/{id_usuario}', [ArchivoRegistroController::class, 'archivosPorUsuario'])
+    ->name('monitor.files');
 
 //monitores
 Route::get('/monitor-home', function () {

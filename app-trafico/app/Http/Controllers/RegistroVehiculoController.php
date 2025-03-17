@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ArchivoRegistro;
+use App\Models\Interseccion;
 use App\Models\RegistroVehiculo;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
@@ -58,6 +59,14 @@ class RegistroVehiculoController extends Controller
             ->with('msg-success', 'Registros guardados correctamente.')
             ->with('registros', $registros)
             ->with('id_interseccion', request()->id_interseccion);
-        //return view('monitor/monitor-interaccion')->with('success', 'Registro registrado correctamente.');
+    }
+
+    public function registroVehiculos()
+    {
+        $id_interseccion = request()->id_interseccion;
+        $registros = RegistroVehiculo::registrosPorInterseccion($id_interseccion);
+        return view('admin/flujo-vehicular')
+            ->with('registros', $registros)
+            ->with('intersecciones', Interseccion::all());
     }
 }

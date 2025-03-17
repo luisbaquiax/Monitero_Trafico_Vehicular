@@ -7,7 +7,12 @@
     @include('utils.styles')
 </head>
 <body>
-@include('supervisor.menu-supervisor')
+@if(session('user')->id_rol == 1)
+    @include('admin.menu-admin')
+@endif
+@if(session('user')->id_rol == 3)
+    @include('supervisor.menu-supervisor')
+@endif
 <div class="container">
     @include('utils.messages')
     @include('supervisor.monitors-list')

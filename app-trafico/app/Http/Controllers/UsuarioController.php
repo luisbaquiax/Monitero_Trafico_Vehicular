@@ -8,6 +8,8 @@ use App\Models\Sesion;
 use App\Models\Usuario;
 use Illuminate\Contracts\Queue\Monitor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use function Laravel\Prompts\password;
 
 date_default_timezone_set("America/Guatemala");
 
@@ -17,7 +19,7 @@ class UsuarioController extends Controller
     public function create()
     {
         $user = new Usuario();
-        $user->password = request('password');
+        $user->password = bcrypt(request('password'));
         $user->nombre_usuario = request('username');
         $user->nombres = request('nombres');
         $user->apellidos = request('apellidos');
@@ -35,10 +37,9 @@ class UsuarioController extends Controller
     {
         $password = request('password');
         $username = request('username');
-
         $user = Usuario::where('nombre_usuario', $username)->first();
         if ($user) {
-            if ($user->password == $password) {
+            if (Hash::check($password, $user->password)) {
                 $sesionUsuario = new Sesion();
                 $sesionUsuario->fecha = $this->currentDate();
                 $sesionUsuario->hora_inicio = $this->currentTime();
