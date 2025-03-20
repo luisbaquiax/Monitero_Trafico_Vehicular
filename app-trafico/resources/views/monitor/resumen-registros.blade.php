@@ -9,7 +9,7 @@
 <body>
 @include('monitor.menu-monitor')
 <div class="container">
-    <a type="button" class="btn btn-dark mt-2" href="#">
+    <a type="button" class="btn btn-dark mt-2" href="javascript:history.back()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
              class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
             <path
@@ -17,7 +17,49 @@
         </svg>
         Regresar
     </a>
+    <hr>
     @include('utils.messages')
+    <h2 class="text-center">{{ $interseccion->nombre }}</h2>
+    <h3 class="text-center">Resumen</h3>
+    <strong>Velocidad Media de vehículos:</strong> {{ $velocidadMedia[0]->velocidad_media.' km/h' ?? '' }}
+    <strong>Cantidad Vehículos:</strong> {{ $totalVehiculos[0]->cantidad_vehiculos ?? '' }}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Semaforo</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Velocidad media</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($cantidadPorSemaforo as $registro)
+            <tr>
+                <td>{{ $registro->orientacion }}</td>
+                <td>{{ $registro->cantidad }}</td>
+                <td>{{ $registro->velocidad_media }} km/h</td>
+
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Semaforo</th>
+            <th scope="col">Tipo Vehiculo</th>
+            <th scope="col">Cantidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($cantidadPorSemaforVehiculo as $registro)
+            <tr>
+                <td>{{ $registro->orientacion }}</td>
+                <td>{{ $registro->tipo_vehiculo }}</td>
+                <td>{{ $registro->cantidad }}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 </div>
 @include('utils.footer-scripts')
 </body>

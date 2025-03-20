@@ -24,7 +24,7 @@
             <th scope="col">Intervalo de tiempo de registros</th>
             <th scope="col">Usuario</th>
             <th scope="col">Tipo archivo</th>
-            <th scope="col">Ver registros/Resumen</th>
+            <th scope="col">Ver registros/Resumen/Simulacion</th>
         </tr>
         </thead>
         <tbody>
@@ -37,7 +37,11 @@
                 <td>
                     @include('supervisor/modal-registers')
                     <a class="btn btn-warning"
-                       href="{{ route('ver.resumen', ['id_archivo' => $archivo->id, 'id_interseccion'=> $interseccion->id]) }}">Resumen</a>
+                       href="{{ route('ver.resumen', ['id_archivo' => $archivo->id, 'id_interseccion'=> $interseccion->id] ) }}">Resumen</a>
+                    <a class="btn btn-primary"
+                       href="{{ route('trafico.simulacion', ['id_archivo' => $archivo->id, 'id_interseccion'=> $interseccion->id] ) }}">
+                        Iniciar simulación
+                    </a>
                 </td>
             </tr>
         @endforeach

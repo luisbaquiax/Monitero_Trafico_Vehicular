@@ -13,6 +13,7 @@ use \App\Http\Controllers\SesionController;
 use \App\Http\Controllers\PruebaController;
 use \App\Http\Controllers\RegistroVehiculoController;
 use \App\Http\Controllers\ArchivoRegistroController;
+use \App\Http\Controllers\TraficoController;
 
 Route::get('/', function () {
     return view('login');
@@ -83,3 +84,9 @@ Route::post('crate-intersection', [InterseccionController::class, 'create'])->na
 Route::get('/calles', [CalleController::class, 'index'])->name('list.calle');
 Route::post('/create-street', [CalleController::class, 'create'])->name('create.street');
 Route::post('/edit-street', [CalleController::class, 'edit'])->name('edit.street');
+
+//trafico
+Route::get('/simulacion/{id_archivo}/{id_interseccion}', [TraficoController::class, 'mostrarSimulacion'])
+    ->name('trafico.simulacion');
+
+

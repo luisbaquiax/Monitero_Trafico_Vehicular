@@ -62,11 +62,30 @@ class RegistroVehiculoController extends Controller
                 }
 
             }
+
+            /*
             $registros = $this->registrosPorInterseccion($archivoRegistro->id, request('id_interseccion'));
             return view('monitor/flujo-vehicular-generado')
                 ->with('msg-success', 'Registros guardados correctamente.')
                 ->with('registros', $registros)
                 ->with('id_interseccion', request()->id_interseccion);
+            */
+
+            $interseccion = Interseccion::find(request('id_interseccion'));
+            $archivo = ArchivoRegistro::find($archivoRegistro->id);
+            $cantidadPorSemaforo = ArchivoRegistroController::cantidadRegistrosPorSensorSemaforo($interseccion->id, $archivoRegistro->id);
+            $cantidadPorSemaforVehiculo = ArchivoRegistroController::cantidadRegistrosPorSemaforoYVehiculo($interseccion->id, $archivoRegistro->id);
+            $velocidadMedia = ArchivoRegistroController::velocidadMedia($interseccion->id, $archivoRegistro->id);
+            $totalVehiculos = ArchivoRegistroController::totalVehiculos($interseccion->id, $archivoRegistro->id);
+            return view('monitor/resumen-registros')
+                ->with('interseccion', $interseccion)
+                ->with('archivo', $archivo)
+                ->with('cantidadPorSemaforo', $cantidadPorSemaforo)
+                ->with('cantidadPorSemaforVehiculo', $cantidadPorSemaforVehiculo)
+                ->with('velocidadMedia', $velocidadMedia)
+                ->with('totalVehiculos', $totalVehiculos)
+                ->with('msg-success', 'Registros guardados correctamente.');
+
         } catch (\Exception $e) {
             return back()->with('msg-danger', 'Hubo un error al intentar cargar los registros.');
         }
@@ -129,12 +148,28 @@ class RegistroVehiculoController extends Controller
                 $registroVehiculo->id_sensor = $sensorAleatorio;
                 $registroVehiculo->save();
             }
-
+            /*
             $registros = $this->registrosPorInterseccion($archivoRegistro->id, request('id_interseccion'));
             return view('monitor/flujo-vehicular-generado')
                 ->with('msg-success', 'Registros guardados correctamente.')
                 ->with('registros', $registros)
                 ->with('id_interseccion', request()->id_interseccion);
+            */
+
+            $interseccion = Interseccion::find(request('id_interseccion'));
+            $archivo = ArchivoRegistro::find($archivoRegistro->id);
+            $cantidadPorSemaforo = ArchivoRegistroController::cantidadRegistrosPorSensorSemaforo($interseccion->id, $archivoRegistro->id);
+            $cantidadPorSemaforVehiculo = ArchivoRegistroController::cantidadRegistrosPorSemaforoYVehiculo($interseccion->id, $archivoRegistro->id);
+            $velocidadMedia = ArchivoRegistroController::velocidadMedia($interseccion->id, $archivoRegistro->id);
+            $totalVehiculos = ArchivoRegistroController::totalVehiculos($interseccion->id, $archivoRegistro->id);
+            return view('monitor/resumen-registros')
+                ->with('interseccion', $interseccion)
+                ->with('archivo', $archivo)
+                ->with('cantidadPorSemaforo', $cantidadPorSemaforo)
+                ->with('cantidadPorSemaforVehiculo', $cantidadPorSemaforVehiculo)
+                ->with('velocidadMedia', $velocidadMedia)
+                ->with('totalVehiculos', $totalVehiculos)
+                ->with('msg-success', 'Registros guardados correctamente.');
 
         } catch (\Exception $e) {
             return back()->with('msg-danger', 'Hubo un error al generar datos');

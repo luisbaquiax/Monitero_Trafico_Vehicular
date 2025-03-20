@@ -12,7 +12,7 @@
                        aria-haspopup="true" aria-expanded="false">Archivos</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('monitor.home') }}">Cargar archivo</a>
-                        <a class="dropdown-item" href="{{ route('monitor.myFiles') }}">Archivos cargados</a>
+                        <!-- <a class="dropdown-item" href="{{ route('monitor.myFiles') }}">Archivos cargados</a> -->
                     </div>
                 </li>
                 <li class="nav-item dropdown">

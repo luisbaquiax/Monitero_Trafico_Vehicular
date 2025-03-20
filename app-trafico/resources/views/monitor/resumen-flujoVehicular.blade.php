@@ -13,7 +13,7 @@
         <tr>
             <td>{{ $registro->sensor->semaforo->interseccion->nombre }}</td>
             <td>{{ $registro->tipo_vehiculo->tipo }}</td>
-            <td>{{ $registro->velocidad }}</td>
+            <td>{{ $registro->velocidad }} km/h</td>
             <td>{{ $registro->hora }}</td>
             <td>{{ $registro->sensor->semaforo->orientacion->nombre }}</td>
             <td>{{ $registro->estado_semaforo }}</td>
