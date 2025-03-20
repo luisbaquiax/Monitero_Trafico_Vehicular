@@ -26,7 +26,7 @@ Route::get('/user-list', [UsuarioController::class, 'logout'])->name('users.logo
 Route::get('/users-list', [UsuarioController::class, 'usersList'])->name('users.list');
 Route::get('/delete-user/{id_user}', [UsuarioController::class, 'deleteUser'])->name('delete.user');
 Route::post('/create-user', [UsuarioController::class, 'create'])->name('create.user');
-Route::get('/admin-verFlujo', function (){
+Route::get('/admin-verFlujo', function () {
     return view('admin/select-intersection')->with('intersecciones', Interseccion::all());
 })->name('admin.verFlujo');
 Route::post('/monitor-viewRegisgers', [RegistroVehiculoController::class, 'registroVehiculos'])
@@ -46,8 +46,19 @@ Route::get('monitor-files/{id_usuario}', [ArchivoRegistroController::class, 'arc
 
 //monitores
 Route::get('/monitor-home', function () {
-    return view('monitor.home-monitor')->with('intersecciones', Interseccion::all());
+    return view('monitor.home-monitor')
+        ->with('intersecciones', Interseccion::all())
+        ->with('form', '1');
 })->name('monitor.home');
+
+Route::get('/monitor-home2', function () {
+    return view('monitor.home-monitor')
+        ->with('intersecciones', Interseccion::all())
+        ->with('form', '2');
+})->name('monitor.home2');
+
+Route::post('/registos-archivosInterseccion', [ArchivoRegistroController::class, 'archivosPorInterseccion'])
+    ->name('monitor.archivosInterseccion');
 
 Route::post('/monitor-startIteraccion', [InterseccionController::class, 'startInteraction'])
     ->name('monitor.startIteraccion');
@@ -60,6 +71,9 @@ Route::post('/monitor-datosRandom', [RegistroVehiculoController::class, 'cargarR
 
 Route::get('/monitor.myFiles', [ArchivoRegistroController::class, 'monitorArchivos'])
     ->name('monitor.myFiles');
+
+Route::get('/resumen-registros/{id_archivo}/{id_interseccion}', [ArchivoRegistroController::class, 'verResumenRegistros'])
+    ->name('ver.resumen');
 
 //intersecciones
 Route::get('/intersecciones', [InterseccionController::class, 'index'])->name('list.interseccion');

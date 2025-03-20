@@ -17,6 +17,7 @@
         </svg>
         Regresar
     </a>
+    @include('utils.messages')
     <div class="row mt-2 mb-3">
         <div class="col">
             <form action="{{ route('cargar.datos') }}" method="post" enctype="multipart/form-data">
@@ -45,9 +46,8 @@
             </form>
         </div>
     </div>
-
-    @include('monitor.plantilla-flujoVehicular')
 </div>
+
 @include('utils.footer-scripts')
 </body>
 </html>

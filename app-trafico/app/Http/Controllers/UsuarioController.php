@@ -55,6 +55,7 @@ class UsuarioController extends Controller
                     case 'MONITOR':
                         return view('monitor/home-monitor')
                             ->with('user', $user)
+                            ->with('form', '1')
                             ->with('intersecciones', Interseccion::all());
                     case 'SUPERVISOR':
                         return view('supervisor/home-supervisor')->with('user', $user);

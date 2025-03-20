@@ -17,15 +17,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('list.calle') }}">Calles y avenidas</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                       aria-haspopup="true" aria-expanded="false">Reporte</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('monitors.list') }}">Informe sobre monitores</a>
-                        <a class="dropdown-item" href="{{ route('admin.verFlujo') }}">Flujo vehicular por interseccion</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
             </ul>
             <div class="d-flex">
                 <ul class="navbar-nav me-auto">

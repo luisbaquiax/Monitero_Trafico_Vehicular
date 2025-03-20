@@ -16,8 +16,7 @@
                        aria-haspopup="true" aria-expanded="false">Reporte</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('monitors.list') }}">Informe sobre monitores</a>
-                        <a class="dropdown-item" href="{{ route('admin.verFlujo') }}">Flujo vehicular por interseccion</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="{{ route('monitor.home2') }}">Flujo vehicular por interseccion</a>
                     </div>
                 </li>
             </ul>

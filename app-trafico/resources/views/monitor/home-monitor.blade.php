@@ -7,9 +7,19 @@
     @include('utils.styles')
 </head>
 <body>
-@include('monitor.menu-monitor')
+@if(session('user')->id_rol == 2)
+    @include('monitor.menu-monitor')
+@endif
+@if(session('user')->id_rol == 3)
+    @include('supervisor.menu-supervisor')
+@endif
 <div class="container">
-    @include('monitor.form-intersections')
+    @if($form == 1)
+        @include('monitor.form-intersections')
+    @endif
+    @if($form == 2)
+        @include('monitor.form2-intersections')
+    @endif
 </div>
 @include('utils.footer-scripts')
 </body>

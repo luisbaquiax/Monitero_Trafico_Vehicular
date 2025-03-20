@@ -1,13 +1,11 @@
-<h3 class="text-center">Registro del flujo vehicular</h3>
+<h3 class="text-center">Resumen</h3>
 <table class="table table-hover">
     <thead>
     <tr>
-        <th scope="col">Nombre de interseccion</th>
-        <th scope="col">Tipo Vehículo</th>
-        <th scope="col">Velocidad</th>
-        <th scope="col">Hora</th>
         <th scope="col">Semaforo</th>
-        <th scope="col">Estado del Semáforo</th>
+        <th scope="col">Vehiculo</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Velocidad media</th>
     </tr>
     </thead>
     <tbody>

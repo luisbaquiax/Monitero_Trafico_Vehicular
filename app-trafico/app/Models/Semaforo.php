@@ -16,11 +16,17 @@ class Semaforo extends Model
         'tiempo_amarillo',
         'tiempo_rojo',
         'estado',
-        'id_interseccion'
+        'id_interseccion',
+        'id_orientacion'
     ];
+
+    public function orientacion()
+    {
+        return $this->belongsTo(Orientacion::class, 'id_orientacion');
+    }
 
     public function interseccion()
     {
-        return $this->hasOne(Interseccion::class, 'id', 'id_interseccion');
+        return $this->belongsTo(Interseccion::class, 'id_interseccion');
     }
 }

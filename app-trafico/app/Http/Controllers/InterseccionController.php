@@ -81,8 +81,6 @@ class InterseccionController extends Controller
 
     public function startInteraction()
     {
-        $registros = RegistroVehiculo::registrosPorInterseccion(\request()->id_interseccion);
-
         $archivos = ArchivoRegistro::select([
             'id', 'fecha', 'hora_inicio', 'hora_finalizacion', 'id_usuario', 'tipo'
         ])
@@ -93,13 +91,13 @@ class InterseccionController extends Controller
             ->with(['registros'])
             ->get();
 
+        $registros = [];
+        session(['intersecciones' => Interseccion::all()]);
         return view('monitor/monitor-interaccion')
             ->with('interseccion', Interseccion::find(request()->id_interseccion))
-            ->with('registros', $registros)
             ->with('id_interseccion', request()->id_interseccion)
-            ->with('archivos', $archivos);
-
-
+            ->with('archivos', $archivos)
+            ->with('registros', $registros);
     }
 
     public function getIntersecciones()

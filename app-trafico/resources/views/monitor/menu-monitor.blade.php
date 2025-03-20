@@ -12,7 +12,6 @@
                        aria-haspopup="true" aria-expanded="false">Archivos</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('monitor.home') }}">Cargar archivo</a>
-                        <a class="dropdown-item" href="#">Todos los archivos</a>
                         <a class="dropdown-item" href="{{ route('monitor.myFiles') }}">Archivos cargados</a>
                     </div>
                 </li>
@@ -20,7 +19,7 @@
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                        aria-haspopup="true" aria-expanded="false">Reporte</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('monitor.home') }}">Registros de vehiculos por intersección</a>
+                        <a class="dropdown-item" href="{{ route('monitor.home2') }}">Registros de archivos por intersección</a>
                     </div>
                 </li>
             </ul>

@@ -19,6 +19,7 @@ class Sensor extends Model
 
     public function semaforo()
     {
-        return $this->hasOne(Semaforo::class, 'id', 'id_semaforo');
+        //return $this->hasOne(Semaforo::class, 'id', 'id_semaforo');
+        return $this->belongsTo(Semaforo::class, 'id_semaforo');
     }
 }

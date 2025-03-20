@@ -16,56 +16,66 @@ class RegistroVehiculoController extends Controller
     //
     public function cargarDatos()
     {
+        try {
+            $archivo = request()->file('archivo');
+            $contenido = file_get_contents($archivo);
 
-        $archivo = request()->file('archivo');
-        $contenido = file_get_contents($archivo);
+            // Decodificar el JSON
+            $datos = json_decode($contenido, true);
 
-        // Decodificar el JSON
-        $datos = json_decode($contenido, true);
-
-        if (!$datos) {
-            return back()->with('error', 'El archivo no tiene un formato válido.');
-        }
-
-        $usuario = new Usuario();
-        $userSesion = session('user');
-        $usuario->id = $userSesion->id;
-
-        $archivoRegistro = ArchivoRegistro::create([
-            'fecha' => $datos['fecha'],
-            'hora_inicio' => $datos['hora_inicio'],
-            'hora_finalizacion' => $datos['hora_finalizacion'],
-            'id_usuario' => $usuario->id,
-            'tipo' => $datos['tipo'],
-        ]);
-
-
-        foreach ($datos['registros'] as $registro) {
-            try {
-                RegistroVehiculo::create([
-                    'id_tipo_vehiculo' => $registro['id_tipo_vehiculo'],
-                    'velocidad' => $registro['velocidad'],
-                    'hora' => $registro['hora'],
-                    'estado_semaforo' => $registro['estado_semaforo'],
-                    'id_registro_archivo' => $archivoRegistro->id,
-                    'id_sensor' => $registro['id_sensor'],
-                ]);
-            } catch (\Exception $e) {
-                echo $e->getMessage();
+            if (!$datos) {
+                return back()->with('error', 'El archivo no tiene un formato válido.');
             }
 
-        }
-        $registros = RegistroVehiculo::registrosPorInterseccion(request()->id_interseccion);
+            $usuario = new Usuario();
+            $userSesion = session('user');
+            $usuario->id = $userSesion->id;
 
-        return view('monitor/monitor-interaccion')
-            ->with('msg-success', 'Registros guardados correctamente.')
-            ->with('registros', $registros)
-            ->with('id_interseccion', request()->id_interseccion);
+            $archivoRegistro = ArchivoRegistro::create([
+                'fecha' => $datos['fecha'],
+                'hora_inicio' => $datos['hora_inicio'],
+                'hora_finalizacion' => $datos['hora_finalizacion'],
+                'id_usuario' => $usuario->id,
+                'tipo' => $datos['tipo'],
+            ]);
+
+            $sensores = DB::table('sensor')
+                ->join('semaforo', 'semaforo.id', '=', 'sensor.id_semaforo')
+                ->where('semaforo.id_interseccion', request('id_interseccion'))
+                ->pluck('sensor.id')
+                ->toArray();
+
+            foreach ($datos['registros'] as $registro) {
+                $indiceSensor = array_rand($sensores);
+                $sensorAleatorio = $sensores[$indiceSensor];
+                try {
+                    RegistroVehiculo::create([
+                        'id_tipo_vehiculo' => $registro['id_tipo_vehiculo'],
+                        'velocidad' => $registro['velocidad'],
+                        'hora' => $registro['hora'],
+                        'estado_semaforo' => $registro['estado_semaforo'],
+                        'id_registro_archivo' => $archivoRegistro->id,
+                        'id_sensor' => $sensorAleatorio,
+                    ]);
+                } catch (\Exception $e) {
+                    echo $e->getMessage();
+                }
+
+            }
+            $registros = $this->registrosPorInterseccion($archivoRegistro->id, request('id_interseccion'));
+            return view('monitor/flujo-vehicular-generado')
+                ->with('msg-success', 'Registros guardados correctamente.')
+                ->with('registros', $registros)
+                ->with('id_interseccion', request()->id_interseccion);
+        } catch (\Exception $e) {
+            return back()->with('msg-danger', 'Hubo un error al intentar cargar los registros.');
+        }
     }
 
     public function cargarRegistrosAleatorios()
     {
-        $json = '[
+        try {
+            $json = '[
                     {"hora_inicio": "7:00", "hora_final": "8:00"},
                     {"hora_inicio": "8:00", "hora_final": "9:00"},
                     {"hora_inicio": "9:00", "hora_final": "10:00"},
@@ -79,63 +89,71 @@ class RegistroVehiculoController extends Controller
                     {"hora_inicio": "17:00", "hora_final": "18:00"}
                 ]';
 
-        $horas = json_decode($json, true);
+            $horas = json_decode($json, true);
 
-        $indiceAleatorio = array_rand($horas);
+            $indiceAleatorio = array_rand($horas);
 
-        $horaAleatoria = $horas[$indiceAleatorio];
+            $horaAleatoria = $horas[$indiceAleatorio];
 
-        $archivoRegistro = new ArchivoRegistro();
-        $archivoRegistro->fecha = UsuarioController::currentDate();
-        $archivoRegistro->hora_inicio = $horaAleatoria['hora_inicio'];
-        $archivoRegistro->hora_finalizacion = $horaAleatoria['hora_final'];
-        $archivoRegistro->id_usuario = session('user')->id;
-        $archivoRegistro->tipo = 'ALEATORIO';
-        $archivoRegistro->save();
+            $archivoRegistro = new ArchivoRegistro();
+            $archivoRegistro->fecha = UsuarioController::currentDate();
+            $archivoRegistro->hora_inicio = $horaAleatoria['hora_inicio'];
+            $archivoRegistro->hora_finalizacion = $horaAleatoria['hora_final'];
+            $archivoRegistro->id_usuario = session('user')->id;
+            $archivoRegistro->tipo = 'ALEATORIO';
+            $archivoRegistro->save();
 
 
+            $sensores = DB::table('sensor')
+                ->join('semaforo', 'semaforo.id', '=', 'sensor.id_semaforo')
+                ->where('semaforo.id_interseccion', request('id_interseccion'))
+                ->pluck('sensor.id')
+                ->toArray();
 
-        $sensores = DB::table('sensor')
-            ->join('semaforo', 'semaforo.id', '=', 'sensor.id_semaforo')
-            ->where('semaforo.id_interseccion', request('id_interseccion'))
-            ->pluck('sensor.id')
-            ->toArray();
 
-        $indiceSensor = array_rand($sensores);
-        $sensorAleatorio = $sensores[$indiceSensor];
+            for ($i = 0; $i < 100; $i++) {
 
-        for ($i = 0; $i < 100; $i++) {
-            $tipoVehiculos = TipoVehiculo::all()->toArray();
-            $indiceVehiculo = array_rand($tipoVehiculos);
-            $vehiculoAleatorio = $tipoVehiculos[$indiceVehiculo];
+                $indiceSensor = array_rand($sensores);
+                $sensorAleatorio = $sensores[$indiceSensor];
 
-            $registroVehiculo = new RegistroVehiculo();
-            $registroVehiculo->id_tipo_vehiculo = $vehiculoAleatorio['id'];
-            $registroVehiculo->velocidad = rand(10, 100) + (rand(0, 99) / 100);
-            $registroVehiculo->hora = self::horaAleatoria($horaAleatoria['hora_inicio'], $horaAleatoria['hora_final']);
-            $registroVehiculo->estado_semaforo = (rand(0, 1) == 0) ? 'AMARILLO' : 'VERDE';
-            $registroVehiculo->id_registro_archivo = $archivoRegistro->id;
-            $registroVehiculo->id_sensor = $sensorAleatorio;
-            $registroVehiculo->save();
+                $tipoVehiculos = TipoVehiculo::all()->toArray();
+                $indiceVehiculo = array_rand($tipoVehiculos);
+                $vehiculoAleatorio = $tipoVehiculos[$indiceVehiculo];
+
+                $registroVehiculo = new RegistroVehiculo();
+                $registroVehiculo->id_tipo_vehiculo = $vehiculoAleatorio['id'];
+                $registroVehiculo->velocidad = rand(10, 100) + (rand(0, 99) / 100);
+                $registroVehiculo->hora = self::horaAleatoria($horaAleatoria['hora_inicio'], $horaAleatoria['hora_final']);
+                $registroVehiculo->estado_semaforo = (rand(0, 1) == 0) ? 'AMARILLO' : 'VERDE';
+                $registroVehiculo->id_registro_archivo = $archivoRegistro->id;
+                $registroVehiculo->id_sensor = $sensorAleatorio;
+                $registroVehiculo->save();
+            }
+
+            $registros = $this->registrosPorInterseccion($archivoRegistro->id, request('id_interseccion'));
+            return view('monitor/flujo-vehicular-generado')
+                ->with('msg-success', 'Registros guardados correctamente.')
+                ->with('registros', $registros)
+                ->with('id_interseccion', request()->id_interseccion);
+
+        } catch (\Exception $e) {
+            return back()->with('msg-danger', 'Hubo un error al generar datos');
         }
-
-        $registros = RegistroVehiculo::registrosPorInterseccion(request()->id_interseccion);
-        return view('monitor/monitor-interaccion')
-            ->with('msg-success', 'Registros guardados correctamente.')
-            ->with('registros', $registros)
-            ->with('id_interseccion', request()->id_interseccion);
     }
 
-    public function registroVehiculos()
+    public function registrosPorInterseccion($id_archivo, $id_interseccion)
     {
-        $id_interseccion = request()->id_interseccion;
-        $registros = RegistroVehiculo::registrosPorInterseccion($id_interseccion);
-        return view('admin/flujo-vehicular')
-            ->with('registros', $registros)
-            ->with('intersecciones', Interseccion::all());
+        return RegistroVehiculo::where('id_registro_archivo', $id_archivo)
+            ->whereHas('sensor.semaforo.interseccion', function ($query) use ($id_interseccion) {
+                $query->where('id', $id_interseccion);
+            })
+            ->with([
+                'sensor.semaforo.orientacion',
+                'sensor.semaforo.interseccion'
+            ])
+            ->orderBy('hora','asc')
+            ->get();
     }
-
-
 
     public static function horaAleatoria($horaInicio, $horaFinal): string
     {

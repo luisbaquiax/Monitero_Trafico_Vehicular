@@ -27,15 +27,17 @@ class RegistroVehiculo extends Model
 
     public function tipo_vehiculo()
     {
-        return $this->hasOne(TipoVehiculo::class, 'id', 'id_tipo_vehiculo');
+        //return $this->hasOne(TipoVehiculo::class, 'id', 'id_tipo_vehiculo');
+        return $this->belongsTo(TipoVehiculo::class, 'id_tipo_vehiculo');
     }
 
     public function sensor()
     {
         return $this->hasOne(Sensor::class, 'id', 'id_sensor');
+        //return $this->belongsTo(Sensor::class, 'id_sensor');
     }
 
-    public static function registrosPorInterseccion($id_interseccion)
+    public static function registrosPorInterseccion()
     {
         return self::with([
             'sensor.semaforo.interseccion'

@@ -1,5 +1,5 @@
 <h3 class="text-center">Lista de intersecciones</h3>
-<form action="{{ route('monitor.startIteraccion') }}" method="post">
+<form action="{{ route('monitor.archivosInterseccion') }}" method="post">
     @csrf
     <select class="form-select mb-2" id="exampleSelect1" name="id_interseccion">
         <@foreach($intersecciones as $interseccion)

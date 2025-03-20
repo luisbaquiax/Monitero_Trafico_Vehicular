@@ -7,13 +7,7 @@
     @include('utils.styles')
 </head>
 <body>
-
-@if(session('user')->id_rol == 1)
-    @include('admin.menu-admin')
-@endif
-@if(session('user')->id_rol == 3)
-    @include('supervisor.menu-supervisor')
-@endif
+@include('supervisor.menu-supervisor')
 <div class="container">
     <h3 class="text-center">Sesiones iniciadas por el usuario: {{ $monitor->nombre_usuario }}</h3>
     <a type="button" class="btn btn-dark" href="{{ route('monitors.list') }}">
